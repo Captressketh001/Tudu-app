@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+:root{
+    --bright-blue: hsl(220, 98%, 61%);
+    --check-background-gradient-1:  hsl(192, 100%, 67%);
+    --check-background-gradient-2: hsl(280, 87%, 65%);
+    --font-size: 18px;
+    --very-dark-blue: hsl(235, 21%, 11%);
+    --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+    --light-grayish-blue: hsl(234, 39%, 85%);
+    --light-grayish-blue-hover: hsl(236, 33%, 92%);
+    --dark-grayish-blue: hsl(234, 11%, 52%);
+    --very-dark-grayish-blue: hsl(233, 14%, 35%);
+    --very-dark-grayish-blue-2: hsl(237, 14%, 26%);
+    --bg-dark: url(/images/bg-desktop-dark.jpg);
+    --bg-light: url(/images/bg-desktop-light.jpg);
+    --bg-mobile-dark: url(/images/bg-mobile-dark.jpg);
+    --bg-mobile-light: url(/images/bg-mobile-light.jpg);
+    --very-light-gray: hsl(0, 0%, 98%);
+}
+/* .light-theme{
+    --very-light-gray: hsl(0, 0%, 98%);
+    --very-light-grayish-blue: hsl(236, 33%, 92%);
+    --light-grayish-blue: hsl(233, 11%, 84%);
+    --dark-grayish-blue: hsl(236, 9%, 61%);
+    --very-dark-grayish-blue: hsl(235, 19%, 35%);
+}
+.dark-theme{
+    --very-dark-blue: hsl(235, 21%, 11%);
+    --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+    --light-grayish-blue: hsl(234, 39%, 85%);
+    --light-grayish-blue-hover: hsl(236, 33%, 92%);
+    --dark-grayish-blue: hsl(234, 11%, 52%);
+    --very-dark-grayish-blue: hsl(233, 14%, 35%);
+    --very-dark-grayish-blue-2: hsl(237, 14%, 26%);
+} */
+body{
+    margin: 0 auto;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+}
+header{
+    background: var(--bg-dark);
+    height: 250px;
+    width: 100%;
+}
+@media screen and (max-width: 375px){
+    header{
+        background: var(--bg-mobile-dark);
+    }
+}
+main{
+    background: var(--very-dark-blue);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+main .todo-body{
+    width: 500px;
+    /* background-color: var(--very-dark-desaturated-blue); */
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 25px;
+    position: relative;
+    bottom: 224px;
+}
+@media screen and (max-width: 520px){
+    main .todo-body{
+        width: 90%;
+    }
+}
+main .todo-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main .todo-header h1{
+    letter-spacing: 15px;
+    color: var(--very-light-gray);
+}
+main .todo-input{
+     background-color: var(--very-dark-desaturated-blue);
+     height: 50px;
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+}
+main .todo-tasks{
+    background-color: var(--very-dark-desaturated-blue);
+     height: 50px;
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     /* margin: 0 10px; */
+     padding: 0 12px;
+     border-bottom: 1px solid var(--dark-grayish-blue);
+     color: var(--light-grayish-blue)
+}
+main .todo-tasks p{
+    flex: 1;
+    padding-left: 25px;
+}
+main .todo-tasks input{
+        -webkit-appearance: none;
+        border: 1px solid hsl(234, 11%, 52%);
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer;
+}
+main .todo-tasks input:checked{
+        background: url('/images/icon-check.svg'), linear-gradient(to right,hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+        background-repeat: no-repeat;
+        background-position: center;
+        border:none;
+      
+}
+main .todo-input span, main .todo-tasks span{
+    border: 1px solid var(--dark-grayish-blue);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+main .todo-input span:hover{
+    border: 1px solid var(--check-background-gradient-2);
+}
+main .todo-input input{
+    width: 85%;
+    height: 30px;
+    border: 0;
+    background: var(--very-dark-desaturated-blue);
+    outline: none;
+    caret-color: var(--bright-blue);
+    color: var(--light-grayish-blue)
+}
+main .todo-input input[type='text' i]{
+    font-size: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+main .todo-state{
+    background-color: var(--very-dark-desaturated-blue);
+     height: auto;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     /* margin: 0 10px; */
+     padding: 0 12px;
+     color: var(--dark-grayish-blue);
+     flex-wrap: wrap;
+}
+main .todo-state div{
+    display: flex;
+}
+@media screen and (max-width: 450px){
+    main .todo-state{
+        padding: 0;
+        height: 60px;
+    }
+    main .todo-state p{
+        padding:0 10px;
+    }
+    main .todo-state div{
+        width: 100%;
+       order: 3;
+       background-color: var(--very-dark-desaturated-blue);
+       justify-content: center;
+       position: relative;
+       top: 25px;
+       height: auto;
+     
+
+       /* margin-top: 20px; */
+       /* width: 100%; */
+       /* display: block; */
+       /* flex-wrap: wrap; */
+       /* justify-self: flex-end; */
+    }
+}
+main .todo-state div p{
+    padding-left: 10px;
+}
+footer{
+    height: 200px;
+    display: flex;
+    text-align: center;
+    color: var(--dark-grayish-blue);
+    align-items: center;
+    justify-content: center;
+}
