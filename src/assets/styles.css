@@ -1,62 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-:root{
-    --bright-blue: hsl(220, 98%, 61%);
-    --check-background-gradient-1:  hsl(192, 100%, 67%);
-    --check-background-gradient-2: hsl(280, 87%, 65%);
-    --font-size: 18px;
-    --very-dark-blue: hsl(235, 21%, 11%);
-    --very-dark-desaturated-blue: hsl(235, 24%, 19%);
-    --light-grayish-blue: hsl(234, 39%, 85%);
-    --light-grayish-blue-hover: hsl(236, 33%, 92%);
-    --dark-grayish-blue: hsl(234, 11%, 52%);
-    --very-dark-grayish-blue: hsl(233, 14%, 35%);
-    --very-dark-grayish-blue-2: hsl(237, 14%, 26%);
-    --bg-dark: url(/images/bg-desktop-dark.jpg);
-    --bg-light: url(/images/bg-desktop-light.jpg);
-    --bg-mobile-dark: url(/images/bg-mobile-dark.jpg);
-    --bg-mobile-light: url(/images/bg-mobile-light.jpg);
-    --very-light-gray: hsl(0, 0%, 98%);
+.theme-light{
+    --bg: url(/images/bg-desktop-light.jpg);
+    --bg-mobile: url(/images/bg-mobile-light.jpg);
+    --label-image:url(/images/icon-moon.svg);
+    --bg-color: hsl(0, 0%, 98%);
+    --todo-header:  hsl(0, 0%, 98%);
+    --todo-tasks-bg:hsl(0, 0%, 98%);
+    --todo-tasks:  hsl(234, 39%, 85%);
+    --todo-tasks-color: hsl(234, 11%, 52%);
+    --todo-tasks-input: hsl(234, 11%, 52%); 
+    --todo-span: hsl(280, 87%, 65%);
+    --todo-active: hsl(220, 98%, 61%);
 }
-/* .light-theme{
-    --very-light-gray: hsl(0, 0%, 98%);
-    --very-light-grayish-blue: hsl(236, 33%, 92%);
-    --light-grayish-blue: hsl(233, 11%, 84%);
-    --dark-grayish-blue: hsl(236, 9%, 61%);
-    --very-dark-grayish-blue: hsl(235, 19%, 35%);
-}
-.dark-theme{
-    --very-dark-blue: hsl(235, 21%, 11%);
-    --very-dark-desaturated-blue: hsl(235, 24%, 19%);
-    --light-grayish-blue: hsl(234, 39%, 85%);
-    --light-grayish-blue-hover: hsl(236, 33%, 92%);
-    --dark-grayish-blue: hsl(234, 11%, 52%);
-    --very-dark-grayish-blue: hsl(233, 14%, 35%);
-    --very-dark-grayish-blue-2: hsl(237, 14%, 26%);
-} */
+.theme-dark{
+    --bg: url(/images/bg-desktop-dark.jpg);
+    --bg-mobile: url(/images/bg-mobile-dark.jpg);
+    --label-image:url(/images/icon-sun.svg);
+    --bg-color: hsl(235, 21%, 11%);
+    --todo-header:  hsl(0, 0%, 98%);
+    --todo-tasks-bg:hsl(235, 24%, 19%);
+    --todo-tasks: hsl(234, 11%, 52%);
+    --todo-tasks-color: hsl(234, 39%, 85%);
+    --todo-tasks-input: hsl(234, 11%, 52%); 
+    --todo-span: hsl(280, 87%, 65%);
+    --todo-active: hsl(220, 98%, 61%);
+} 
 body{
     margin: 0 auto;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
 }
 header{
-    background: var(--bg-dark);
+    background: var(--bg);
     height: 250px;
     width: 100%;
 }
+.todo-header div{
+    position:relative;
+}
+.todo-header div input[type="checkbox"]{
+    position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  cursor: pointer;
+}
 @media screen and (max-width: 375px){
     header{
-        background: var(--bg-mobile-dark);
+        background: var(--bg-mobile);
     }
 }
 main{
-    background: var(--very-dark-blue);
+    background: var(--bg-color);
     height: 100%;
     display: flex;
     justify-content: center;
 }
 main .todo-body{
     width: 500px;
-    /* background-color: var(--very-dark-desaturated-blue); */
     display: flex;
     flex-direction: column;
     height: auto;
@@ -64,6 +66,18 @@ main .todo-body{
     position: relative;
     bottom: 224px;
 }
+
+label {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-image: var(--label-image);
+}
+ 
 @media screen and (max-width: 520px){
     main .todo-body{
         width: 90%;
@@ -76,25 +90,25 @@ main .todo-header{
 }
 main .todo-header h1{
     letter-spacing: 15px;
-    color: var(--very-light-gray);
+    color: var(--todo-header);
 }
 main .todo-input{
-     background-color: var(--very-dark-desaturated-blue);
+     background-color: var(--todo-tasks-bg);
      height: 50px;
      display: flex;
      align-items: center;
      justify-content: space-around;
 }
 main .todo-tasks{
-    background-color: var(--very-dark-desaturated-blue);
+     background-color: var(--todo-tasks-bg);
      height: 50px;
      display: flex;
      align-items: center;
      justify-content: space-evenly;
-     /* margin: 0 10px; */
      padding: 0 12px;
-     border-bottom: 1px solid var(--dark-grayish-blue);
-     color: var(--light-grayish-blue)
+     border-bottom: 1px solid var(--todo-tasks);
+     color: var(--todo-tasks-color);
+     cursor: pointer
 }
 main .todo-tasks p{
     flex: 1;
@@ -114,43 +128,56 @@ main .todo-tasks input:checked{
         background-repeat: no-repeat;
         background-position: center;
         border:none;
-      
+}
+main .todo-tasks s{
+    color: var(--todo-tasks);
+}
+main .todo-tasks img{
+    /* height: 10px; */
 }
 main .todo-input span, main .todo-tasks span{
-    border: 1px solid var(--dark-grayish-blue);
+    border: 1px solid var(--todo-tasks);
     height: 20px;
     width: 20px;
     border-radius: 50%;
 }
 main .todo-input span:hover{
-    border: 1px solid var(--check-background-gradient-2);
+    border: 1px solid var(--todo-span);
 }
 main .todo-input input{
     width: 85%;
     height: 30px;
     border: 0;
-    background: var(--very-dark-desaturated-blue);
+    background: var(--todo-tasks-bg);
     outline: none;
-    caret-color: var(--bright-blue);
-    color: var(--light-grayish-blue)
+    caret-color: var(--todo-active);
+    color: var(--todo-tasks-color)
 }
 main .todo-input input[type='text' i]{
     font-size: 16px;
     font-family: 'Josefin Sans', sans-serif;
 }
 main .todo-state{
-    background-color: var(--very-dark-desaturated-blue);
+    background-color: var(--todo-tasks-bg);
      height: auto;
      display: flex;
      align-items: center;
      justify-content: space-between;
-     /* margin: 0 10px; */
      padding: 0 12px;
-     color: var(--dark-grayish-blue);
+     color: var(--todo-tasks);
      flex-wrap: wrap;
 }
 main .todo-state div{
     display: flex;
+}
+main .todo-container{
+    box-shadow: 0 5px 20px rgb(0 0 0 / 25%);
+}
+main .todo-container::before{
+    position: absolute;
+}
+main.todo-state, main .todo-container, main .todo-input{
+    border-radius: 5px;
 }
 @media screen and (max-width: 450px){
     main .todo-state{
@@ -163,28 +190,41 @@ main .todo-state div{
     main .todo-state div{
         width: 100%;
        order: 3;
-       background-color: var(--very-dark-desaturated-blue);
+       background-color: var(--todo-tasks-bg);
        justify-content: center;
        position: relative;
        top: 25px;
        height: auto;
-     
-
-       /* margin-top: 20px; */
-       /* width: 100%; */
-       /* display: block; */
-       /* flex-wrap: wrap; */
-       /* justify-self: flex-end; */
+       box-shadow: 0 5px 20px rgb(0 0 0 / 25%);
     }
 }
 main .todo-state div p{
     padding-left: 10px;
 }
+main .todo-state .todo-active, main .todo-state .todo-active ~ p{
+    cursor: pointer;
+}
+main .todo-state .todo-active .active{
+    color: var(--todo-active);
+}
+main .todo-state .todo-active ~ p:hover, main .todo-state .todo-active p:hover{
+    color: var(--todo-tasks-color);
+}
 footer{
     height: 200px;
     display: flex;
     text-align: center;
-    color: var(--dark-grayish-blue);
+    color: var(--todo-tasks);
     align-items: center;
     justify-content: center;
+}
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
